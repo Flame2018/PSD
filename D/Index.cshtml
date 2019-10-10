@@ -1,0 +1,51 @@
+﻿@page
+@model Ken_PS1.Pages.D.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dogs[0].Dname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dogs[0].Breed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dogs[0].PsID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dogs[0].DID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Dogs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Breed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PsID.PSID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

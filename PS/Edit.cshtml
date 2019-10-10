@@ -1,0 +1,40 @@
+﻿@page
+@model Ken_PS1.Pages.PS.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PetStore</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PetStore.PSID" />
+            <div class="form-group">
+                <label asp-for="PetStore.PSname" class="control-label"></label>
+                <input asp-for="PetStore.PSname" class="form-control" />
+                <span asp-validation-for="PetStore.PSname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PetStore.PScap" class="control-label"></label>
+                <input asp-for="PetStore.PScap" class="form-control" />
+                <span asp-validation-for="PetStore.PScap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
